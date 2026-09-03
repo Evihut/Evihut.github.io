@@ -38,3 +38,13 @@ python3 -m http.server 8000
 
 Pushing to `main` publishes automatically
 (Settings → Pages → Deploy from a branch → `main` / root).
+
+## Before publishing
+
+`index.html` still contains **`NETID@wisc.edu`** in three places (two in the
+masthead links, one in Contact). Replace it with the real address:
+
+```bash
+sed -i '' 's/NETID@wisc\.edu/your-real-address@wisc.edu/g' index.html
+grep -c 'NETID@wisc' index.html   # must print 0
+```
