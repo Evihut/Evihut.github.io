@@ -186,6 +186,32 @@ a:focus-visible {
   letter-spacing: .01em;
 }
 
+/* Live-demo link on a work entry */
+
+.entry__links {
+  margin: .55rem 0 0;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .25rem .6rem;
+}
+
+.demo-link {
+  font-family: var(--mono);
+  font-size: .78rem;
+  color: var(--accent);
+  border-bottom: 1px solid currentColor;
+  white-space: nowrap;
+}
+.demo-link::after { content: " \2197"; }
+.demo-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+.demo-note {
+  font-size: .76rem;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
 /* ---------- Metric tables ---------- */
 
 .metrics {
