@@ -3,332 +3,181 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name · CS &amp; Math @ UW–Madison</title>
-  <meta name="description" content="Personal homepage of an undergraduate in Computer Science and Mathematics at the University of Wisconsin–Madison. Machine learning research, projects, and competitions." />
-  <meta name="author" content="Your Name" />
+  <title>Zhengji Zhang</title>
+  <meta name="description" content="Zhengji Zhang — Computer Science and Mathematics at the University of Wisconsin–Madison. Machine learning systems, interpretable modeling, and reproducible evaluation." />
+  <meta name="author" content="Zhengji Zhang" />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Your Name · CS & Math @ UW–Madison" />
-  <meta property="og:description" content="Machine learning research, projects, and competitions." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Zhengji Zhang" />
+  <meta property="og:description" content="CS & Mathematics at UW–Madison. Machine learning systems, interpretable modeling, reproducible evaluation." />
+  <meta property="og:url" content="https://evihut.github.io/" />
+  <link rel="canonical" href="https://evihut.github.io/" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%231a1a1a'/><text x='50' y='72' font-size='58' font-family='Georgia,serif' fill='%23fafafa' text-anchor='middle'>Z</text></svg>" />
+  <script>
+    // Applied before first paint so a saved dark theme never flashes light.
+    try { var t = localStorage.getItem('theme');
+          if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); }
+    catch (e) {}
+  </script>
 </head>
 <body>
-  <!-- Animated background -->
-  <canvas id="bg-canvas" aria-hidden="true"></canvas>
-  <div class="grid-overlay" aria-hidden="true"></div>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme" title="Toggle light / dark">
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><path class="ic-sun" d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.66-5.66 1.41-1.41M4.93 19.07l1.41-1.41m11.32 0 1.41 1.41M4.93 4.93l1.41 1.41M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z"/><path class="ic-moon" d="M20 14.5A8 8 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+  </button>
 
-  <!-- Scroll progress -->
-  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <div class="wrap">
 
-  <!-- Navbar -->
-  <header class="nav" id="nav">
-    <a href="#top" class="nav__brand">
-      <span class="nav__logo">YN</span>
-      <span class="nav__name">Your Name</span>
-    </a>
-    <nav class="nav__links" aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#research">Research</a>
-      <a href="#publications">Publications</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle color theme" title="Toggle theme">
-      <span class="theme-toggle__icon"></span>
-    </button>
-    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
+    <!-- ───────────── Header ───────────── -->
+    <header class="masthead">
+      <h1 class="name">Zhengji Zhang</h1>
+      <p class="affil">
+        Computer Science &amp; Mathematics<br />
+        University of Wisconsin&ndash;Madison
+      </p>
+      <nav class="links" aria-label="Profile links">
+        <a href="https://github.com/Evihut" rel="me noopener" target="_blank">GitHub</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="mailto:zhengjizhang1226@gmail.com">Email</a>
+      </nav>
+    </header>
 
-  <main id="top">
-    <!-- HERO -->
-    <section class="hero" id="hero">
-      <div class="hero__inner">
-        <p class="hero__eyebrow reveal">
-          <span class="status-dot"></span> Available for research &amp; internships · 2026
-        </p>
-        <h1 class="hero__title reveal">
-          Hi, I'm <span class="grad-text">Your Name</span>.
-        </h1>
-        <h2 class="hero__role reveal">
-          <span class="hero__static">I build &amp;&nbsp;research</span>
-          <span class="typed" id="typed"></span><span class="caret">▌</span>
-        </h2>
-        <p class="hero__lead reveal">
-          Undergraduate in <strong>Computer Science</strong> &amp; <strong>Mathematics</strong> at the
-          University of Wisconsin–Madison. I work at the intersection of
-          machine learning, applied math, and shipping things that actually run.
-        </p>
-        <div class="hero__cta reveal">
-          <a href="#projects" class="btn btn--primary">View my work <span class="btn__arrow">→</span></a>
-          <a href="#contact" class="btn btn--ghost">Get in touch</a>
-        </div>
-        <div class="hero__stats reveal">
-          <div class="stat"><span class="stat__num" data-count="4">0</span><span class="stat__label">Kaggle medals</span></div>
-          <div class="stat"><span class="stat__num" data-count="3">0</span><span class="stat__label">Papers / preprints</span></div>
-          <div class="stat"><span class="stat__num" data-count="3.9" data-decimals="2">0</span><span class="stat__label">GPA</span></div>
-        </div>
-      </div>
-      <a href="#about" class="hero__scroll" aria-label="Scroll down">
-        <span class="hero__scroll-line"></span>
-      </a>
-    </section>
-
-    <!-- ABOUT -->
+    <!-- ───────────── About ───────────── -->
     <section class="section" id="about">
-      <div class="section__head reveal">
-        <span class="section__index">01</span>
-        <h2 class="section__title">About</h2>
-        <span class="section__rule"></span>
-      </div>
-      <div class="about reveal">
-        <div class="about__text">
-          <p>
-            I'm a CS &amp; Math undergrad at <strong>UW–Madison</strong> who likes problems that sit
-            where theory meets a deadline. Most of my time goes into machine learning research and
-            high-stakes competitions, where I get to turn messy data and half-formed ideas into
-            systems that hold up under evaluation.
-          </p>
-          <p>
-            I care about <em>honest results</em> — methods that work for a reason I can explain, not
-            because a lucky seed flattered them. When I'm not training models, I'm reading proofs,
-            sketching architectures on whiteboards, or chasing leaderboard medals.
-          </p>
-          <ul class="about__facts">
-            <li><span>🎓</span> B.S. Computer Science &amp; Mathematics · UW–Madison</li>
-            <li><span>🔬</span> ML research · applied math · optimization</li>
-            <li><span>🏅</span> Active Kaggle competitor</li>
-            <li><span>📍</span> Madison, WI</li>
-          </ul>
-        </div>
-        <aside class="about__card tilt">
-          <div class="about__card-inner">
-            <pre class="code-block"><code><span class="c-key">const</span> <span class="c-var">me</span> = {
-  <span class="c-prop">name</span>: <span class="c-str">"Your Name"</span>,
-  <span class="c-prop">school</span>: <span class="c-str">"UW–Madison"</span>,
-  <span class="c-prop">majors</span>: [<span class="c-str">"CS"</span>, <span class="c-str">"Math"</span>],
-  <span class="c-prop">focus</span>: <span class="c-str">"machine learning"</span>,
-  <span class="c-prop">stack</span>: [<span class="c-str">"Python"</span>, <span class="c-str">"PyTorch"</span>, <span class="c-str">"C++"</span>],
-  <span class="c-prop">currentlyLearning</span>: <span class="c-str">"causal ML"</span>,
-  <span class="c-prop">openTo</span>: <span class="c-str">"research · internships"</span>,
-};</code></pre>
-          </div>
-        </aside>
-      </div>
+      <p class="lede">
+        I build machine learning systems and applied modeling tools, with an emphasis on
+        reproducible evaluation, clear system boundaries, and measured results.
+      </p>
+      <p>
+        Most of my work follows the same shape: take a method that is supposed to help,
+        build the harness that can actually tell whether it did, and report the number that
+        comes back &mdash; including when it is smaller than expected. The two projects below
+        are written that way, and both state the limits of what their measurements support.
+      </p>
     </section>
 
-    <!-- RESEARCH INTERESTS -->
-    <section class="section" id="research">
-      <div class="section__head reveal">
-        <span class="section__index">02</span>
-        <h2 class="section__title">Research Interests</h2>
-        <span class="section__rule"></span>
-      </div>
-      <div class="cards">
-        <article class="card reveal">
-          <div class="card__icon">🧠</div>
-          <h3>Machine Learning</h3>
-          <p>Representation learning, deep architectures, and training methods that generalize beyond the validation split.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">🔗</div>
-          <h3>Causal &amp; Robust ML</h3>
-          <p>Causal inference and methods that stay honest in low-data, distribution-shifted regimes.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">📐</div>
-          <h3>Applied Mathematics</h3>
-          <p>Optimization, probability, and the linear algebra that quietly powers every model.</p>
-        </article>
-        <article class="card reveal">
-          <div class="card__icon">🛡️</div>
-          <h3>ML Security</h3>
-          <p>Red-teaming, adversarial robustness, and understanding where models break.</p>
-        </article>
-      </div>
-    </section>
+    <!-- ───────────── Projects ───────────── -->
+    <section class="section" id="work">
+      <h2 class="section-title">Selected work</h2>
 
-    <!-- PUBLICATIONS -->
-    <section class="section" id="publications">
-      <div class="section__head reveal">
-        <span class="section__index">03</span>
-        <h2 class="section__title">Publications</h2>
-        <span class="section__rule"></span>
-      </div>
-      <ol class="pub-list">
-        <li class="pub reveal">
-          <div class="pub__year">2026</div>
-          <div class="pub__body">
-            <h3 class="pub__title">CausalGRAFT: Honest Causal Representation Learning in Low-Data Domains</h3>
-            <p class="pub__authors">Your Name, Co-author A, Co-author B</p>
-            <p class="pub__venue"><span class="badge">Preprint</span> Under review</p>
-            <p class="pub__desc">A causal representation method that delivers consistent gains specifically in low-data, domain-shifted settings — framed honestly around where it does and does not help.</p>
-            <div class="pub__links">
-              <a href="#" class="link-pill">PDF</a>
-              <a href="#" class="link-pill">arXiv</a>
-              <a href="#" class="link-pill">Code</a>
-            </div>
-          </div>
-        </li>
-        <li class="pub reveal">
-          <div class="pub__year">2025</div>
-          <div class="pub__body">
-            <h3 class="pub__title">Paper Title Two — replace with your work</h3>
-            <p class="pub__authors">Your Name, et al.</p>
-            <p class="pub__venue"><span class="badge">Workshop</span> Venue Name</p>
-            <p class="pub__desc">One-sentence summary of the contribution and why it matters.</p>
-            <div class="pub__links">
-              <a href="#" class="link-pill">PDF</a>
-              <a href="#" class="link-pill">Code</a>
-            </div>
-          </div>
-        </li>
-        <li class="pub reveal">
-          <div class="pub__year">2025</div>
-          <div class="pub__body">
-            <h3 class="pub__title">Paper Title Three — replace with your work</h3>
-            <p class="pub__authors">Your Name, et al.</p>
-            <p class="pub__venue"><span class="badge">In progress</span></p>
-            <p class="pub__desc">One-sentence summary of the contribution and why it matters.</p>
-            <div class="pub__links">
-              <a href="#" class="link-pill">Details</a>
-            </div>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <!-- PROJECTS & COMPETITIONS -->
-    <section class="section" id="projects">
-      <div class="section__head reveal">
-        <span class="section__index">04</span>
-        <h2 class="section__title">Projects &amp; Competitions</h2>
-        <span class="section__rule"></span>
-      </div>
-      <div class="projects">
-        <article class="project tilt reveal">
-          <div class="project__top">
-            <span class="project__tag">🏅 Kaggle</span>
-            <a href="#" class="project__ext" aria-label="Open project">↗</a>
-          </div>
-          <h3 class="project__title">BirdCLEF 2026</h3>
-          <p class="project__desc">Bioacoustic species classification on noisy field recordings — single-file, reproducible training pipeline.</p>
-          <ul class="project__stack">
-            <li>PyTorch</li><li>Audio ML</li><li>EfficientNet</li>
-          </ul>
-        </article>
-
-        <article class="project tilt reveal">
-          <div class="project__top">
-            <span class="project__tag">🛢️ Kaggle</span>
-            <a href="#" class="project__ext" aria-label="Open project">↗</a>
-          </div>
-          <h3 class="project__title">ROGII Wellbore Geosteering</h3>
-          <p class="project__desc">Predicting wellbore trajectory by combining kriged stratigraphic surfaces from offset wells with gamma-ray matching.</p>
-          <ul class="project__stack">
-            <li>Geostatistics</li><li>Kriging</li><li>Python</li>
-          </ul>
-        </article>
-
-        <article class="project tilt reveal">
-          <div class="project__top">
-            <span class="project__tag">🛡️ Security</span>
-            <a href="#" class="project__ext" aria-label="Open project">↗</a>
-          </div>
-          <h3 class="project__title">LLM Red-Team Attack</h3>
-          <p class="project__desc">Automated attack generation against an open-weight LLM, scored on predicate severity and behavioral diversity.</p>
-          <ul class="project__stack">
-            <li>LLMs</li><li>Adversarial</li><li>Eval harness</li>
-          </ul>
-        </article>
-
-        <article class="project tilt reveal">
-          <div class="project__top">
-            <span class="project__tag">🚀 Research</span>
-            <a href="#" class="project__ext" aria-label="Open project">↗</a>
-          </div>
-          <h3 class="project__title">Orbit Wars Agent</h3>
-          <p class="project__desc">Heuristic + search agent for an adversarial orbital strategy game, evaluated via TrueSkill tournaments.</p>
-          <ul class="project__stack">
-            <li>Search</li><li>Game AI</li><li>TrueSkill</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="section" id="skills">
-      <div class="section__head reveal">
-        <span class="section__index">05</span>
-        <h2 class="section__title">Skills &amp; Tools</h2>
-        <span class="section__rule"></span>
-      </div>
-      <div class="skills">
-        <div class="skills__group reveal">
-          <h3>Languages</h3>
-          <div class="chips">
-            <span class="chip">Python</span><span class="chip">C++</span><span class="chip">Java</span>
-            <span class="chip">TypeScript</span><span class="chip">SQL</span><span class="chip">MATLAB</span>
-          </div>
-        </div>
-        <div class="skills__group reveal">
-          <h3>ML &amp; Data</h3>
-          <div class="chips">
-            <span class="chip">PyTorch</span><span class="chip">NumPy</span><span class="chip">scikit-learn</span>
-            <span class="chip">Pandas</span><span class="chip">JAX</span><span class="chip">Hugging Face</span>
-          </div>
-        </div>
-        <div class="skills__group reveal">
-          <h3>Tools &amp; Infra</h3>
-          <div class="chips">
-            <span class="chip">Git</span><span class="chip">Docker</span><span class="chip">Linux</span>
-            <span class="chip">CUDA</span><span class="chip">Weights &amp; Biases</span><span class="chip">LaTeX</span>
-          </div>
-        </div>
-        <div class="skills__group reveal">
-          <h3>Math</h3>
-          <div class="chips">
-            <span class="chip">Optimization</span><span class="chip">Probability</span><span class="chip">Linear Algebra</span>
-            <span class="chip">Real Analysis</span><span class="chip">Statistics</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section section--contact" id="contact">
-      <div class="contact reveal">
-        <span class="section__index">06</span>
-        <h2 class="contact__title">Let's build something.</h2>
-        <p class="contact__lead">
-          Open to research collaborations, internships, and interesting problems.
-          The fastest way to reach me is email.
+      <article class="entry">
+        <header class="entry__head">
+          <h3 class="entry__title">
+            <a href="https://github.com/Evihut/minimind-systems" rel="noopener" target="_blank">MiniMind Systems</a>
+          </h3>
+          <p class="entry__meta">Inference engineering &middot; personal practice project</p>
+        </header>
+        <p>
+          Systems extensions on top of
+          <a href="https://github.com/jingyaogong/minimind" rel="noopener" target="_blank">MiniMind</a>:
+          a preallocated static KV cache, request batching, and an observable FastAPI serving
+          path with Prometheus metrics. Equivalence tests pin the cache to the reference
+          implementation; the benchmark harness emits JSON reports rather than screenshots.
         </p>
-        <a href="mailto:zzhan744@asu.edu" class="btn btn--primary btn--lg">Say hello <span class="btn__arrow">→</span></a>
-        <div class="contact__links">
-          <a href="mailto:zzhan744@asu.edu" class="social">Email</a>
-          <a href="https://github.com/" target="_blank" rel="noopener" class="social">GitHub</a>
-          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="social">LinkedIn</a>
-          <a href="https://www.kaggle.com/" target="_blank" rel="noopener" class="social">Kaggle</a>
-          <a href="https://scholar.google.com/" target="_blank" rel="noopener" class="social">Scholar</a>
-          <a href="assets/cv.pdf" class="social">CV / Résumé</a>
-        </div>
-      </div>
-    </section>
-  </main>
+        <table class="metrics">
+          <caption>Exploratory runs &middot; Apple Silicon CPU &middot; 532,864-parameter model</caption>
+          <tbody>
+            <tr>
+              <th scope="row">Static cache <span class="dim">vs. no cache</span></th>
+              <td class="num pos">+74.10%</td>
+              <td class="unit">tokens/s</td>
+            </tr>
+            <tr>
+              <th scope="row">Static cache <span class="dim">vs. existing dynamic cache</span></th>
+              <td class="num flat">+0.11%</td>
+              <td class="unit">tokens/s</td>
+            </tr>
+            <tr>
+              <th scope="row">Batched serving <span class="dim">batch 8 vs. batch 1</span></th>
+              <td class="num pos">+155.20%</td>
+              <td class="unit">requests/s</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="caveat">
+          Short local runs on a CPU micro-model &mdash; not GPU results, statistical guarantees,
+          or model-quality claims. The +0.11% row is reported precisely because it is not
+          evidence of a robust speedup.
+        </p>
+        <ul class="stack">
+          <li>PyTorch</li><li>FastAPI</li><li>Static KV cache</li><li>Dynamic batching</li><li>Prometheus</li>
+        </ul>
+      </article>
 
-  <footer class="footer">
-    <p>© <span id="year"></span> Your Name · Built with curiosity &amp; vanilla JS.</p>
-    <a href="#top" class="footer__top">Back to top ↑</a>
-  </footer>
+      <article class="entry">
+        <header class="entry__head">
+          <h3 class="entry__title">
+            <a href="https://github.com/Evihut/esg-risk-reporting" rel="noopener" target="_blank">Explainable ESG Risk &amp; Reporting</a>
+          </h3>
+          <p class="entry__meta">Interpretable modeling &middot; validated reporting API</p>
+        </header>
+        <p>
+          A leakage-aware modeling benchmark, a SHAP evidence bundle, and a FastAPI service
+          that returns a risk estimate alongside the strongest positive and negative
+          contributions behind it. Encoding, imputation, and scaling are fitted inside each
+          training fold, so the comparison below is not flattered by the validation split.
+        </p>
+        <table class="metrics">
+          <caption>430 eligible companies &middot; 5 shared folds &middot; seed 42 &middot; lower is better</caption>
+          <thead>
+            <tr><th scope="col">Model</th><th scope="col" class="num">OOF RMSE</th><th scope="col" class="num">OOF MAE</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row" class="dim">Training-fold mean <span class="dim">(baseline)</span></th><td class="num">6.890</td><td class="num">5.615</td></tr>
+            <tr class="best"><th scope="row">CatBoost</th><td class="num">4.870</td><td class="num">3.728</td></tr>
+            <tr><th scope="row" class="dim">ElasticNet</th><td class="num">5.913</td><td class="num">4.812</td></tr>
+            <tr><th scope="row" class="dim">LightGBM</th><td class="num">6.003</td><td class="num">4.709</td></tr>
+            <tr><th scope="row" class="dim">Equal-weight blend</th><td class="num">5.331</td><td class="num">4.232</td></tr>
+          </tbody>
+        </table>
+        <p class="caveat">
+          Internal cross-validation estimates on a historical cross-sectional dataset &mdash;
+          not future-period or external validation. The blend did not beat CatBoost in this run.
+        </p>
+        <p class="award">
+          <span class="award__tag">Grand Prize</span>
+          2025 Zhixiang Cup &mdash; national university economics and management case competition.
+          <span class="dim">The award applies to the original competition case; the repository documents the later engineering release.</span>
+        </p>
+        <ul class="stack">
+          <li>CatBoost</li><li>SHAP</li><li>scikit-learn</li><li>FastAPI</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- ───────────── Interests ───────────── -->
+    <section class="section" id="interests">
+      <h2 class="section-title">Interests</h2>
+      <p>
+        Machine learning systems &middot; applied mathematics &middot; interpretable modeling
+        &middot; quantitative research.
+      </p>
+      <p class="dim">
+        Currently reading into inference-time efficiency and evaluation design &mdash; the
+        question of what a benchmark is actually licensed to conclude.
+      </p>
+    </section>
+
+    <!-- ───────────── Contact ───────────── -->
+    <section class="section" id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p>
+        Open to research collaborations and internships.
+        Email is the fastest way to reach me:
+        <a href="mailto:zhengjizhang1226@gmail.com">zhengjizhang1226@gmail.com</a>.
+        Code and ongoing work live on
+        <a href="https://github.com/Evihut" rel="noopener" target="_blank">GitHub</a>.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; <span id="year"></span> Zhengji Zhang</p>
+    </footer>
+  </div>
 
   <script src="assets/js/main.js"></script>
 </body>
